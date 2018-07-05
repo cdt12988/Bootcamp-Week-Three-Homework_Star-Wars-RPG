@@ -1,0 +1,390 @@
+@font-face {
+    font-family: "starWars";
+    src: url("fonts/Starjedi.ttf");
+}
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+header,
+footer {
+	width: 100vw;
+	height: 9.5vh;
+	font-family: "starWars", sans-serif;
+	font-size: 2em;
+	color: #FFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+/* 	margin-bottom: 2.5%; */
+	border-bottom: 1px double white;
+	background: black;
+	text-align: center;
+}
+.game-container {
+	display: grid;
+	grid:
+		"margin top sidebar" 27vh
+		"margin mid sidebar" 27vh
+		"margin bot sidebar" 27vh
+		"footer footer footer" 9.5vh
+		/ 10vw 80vw 10vw;
+		
+	align-items: center;
+	justify-content: center;
+	background-image: url("../images/background.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+/* 	padding-top: 2.5%; */
+}
+.top-container {
+	grid-area: top;
+	height: 100%;
+	width: 100%;
+/*
+	border-left: 1px solid #FFF;
+	border-top: 1px solid #FFF;
+	border-right: 1px solid #FFF;
+*/
+	
+	display: grid;
+	grid:
+		"t-1 t-2 t-3 t-4 t-5" 100%
+		/ 1fr 1fr 1fr 1fr 1fr;
+		
+	align-items: center;
+	justify-items: center;
+}
+.mid-container {
+	grid-area: mid;
+	height: 100%;
+	width: 100%;
+/*
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #FFF;
+*/
+	
+	display: grid;
+	grid:
+		"m-1 m-2 m-3 m-4 m-5" 100%
+		/ 1fr 1fr 1fr 1fr 1fr;
+		
+	align-items: center;
+	justify-items: center;
+}
+.top-container div,
+.mid-container div {
+	display: flex;
+	align-items: center;
+}
+.bottom-container {
+	grid-area: bot;
+	height: 100%;
+	width: 100%;
+	
+	display: grid;
+	grid: 
+		". leftButton selectedChar rightButton ." 100%
+		/ 1fr 1fr 1fr 1fr 1fr;
+	
+	align-items: center;
+	justify-content: center;
+/*
+	border-left: 1px solid #FFF;
+	border-bottom: 1px solid #FFF;
+	border-right: 1px solid #FFF;
+*/
+}
+.top-1 {
+	grid-area: t-1;
+	height: 100%;
+	width: 100%;
+	min-height: 175px;
+	min-width: 225px;
+}
+.top-2 {
+	grid-area: t-2;
+	height: 100%;
+	width: 100%;
+	min-height: 175px;
+	min-width: 225px;
+}
+.top-3 {
+	grid-area: t-3;
+	height: 100%;
+	width: 100%;
+	min-height: 175px;
+	min-width: 225px;
+}
+.top-4 {
+	grid-area: t-4;
+	height: 100%;
+	width: 100%;
+	min-height: 175px;
+	min-width: 225px;
+}
+.top-5 {
+	grid-area: t-5;
+	height: 100%;
+	width: 100%;
+	min-height: 175px;
+	min-width: 225px;
+}
+.mid-1 {
+	grid-area: m-1;
+	height: 100%;
+	width: 100%;
+	min-height: 175px;
+	min-width: 225px;
+}
+.mid-2 {
+	grid-area: m-2;
+	height: 100%;
+	width: 100%;
+	min-height: 175px;
+	min-width: 225px;
+}
+.mid-3 {
+	grid-area: m-3;
+	height: 100%;
+	width: 100%;
+	min-height: 175px;
+	min-width: 225px;
+}
+.mid-4 {
+	grid-area: m-4;
+	height: 100%;
+	width: 100%;
+	min-height: 175px;
+	min-width: 225px;
+}
+.mid-5 {
+	grid-area: m-5;
+	height: 100%;
+	width: 100%;
+	min-height: 175px;
+	min-width: 225px;
+}
+.left-button {
+	grid-area: leftButton;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+.button-container {
+	height: 100%;
+	width: 100%;
+	max-height: 175px;
+	max-width: 225px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column;
+	position: relative;
+}
+.selected-char {
+	grid-area: selectedChar;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.character {
+	height: 100%;
+	width: 100%;
+	max-height: 175px;
+	max-width: 225px;
+	outline: 1px solid #FFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column;
+	position: relative;
+/* 	background: rgba(178, 34, 34, 0.5); */
+	background: rgba(25, 25, 112, 0.5);
+}
+.enemy {
+	background: rgba(178, 34, 34, 0.5);
+	z-index: 10;
+}
+.charDefeated {
+	background: rgba(105, 105, 105, 0.5);
+}
+.character img {
+	height: 100px;
+	width: 150px;
+}
+.character-name,
+.character-hp {
+	text-align: center;
+	font-family: "starWars";
+	color: #FFF;
+	position: absolute;
+/* 	bottom: 10px; */
+}
+.character-name {
+	bottom: 10px;
+}
+.character-hp {
+	top: 10px;
+}
+.flip-container {
+	perspective: 1000px;
+	 -webkit-perspective: 1000;
+}
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+}
+.flip-container,
+.front,
+.back {
+	width: 225px;
+	height: 175px;
+	color: #FFF;
+}
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+	min-height: 175px;
+	min-width: 225px;
+}
+.front, .back {
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	position: absolute;
+	cursor: pointer;
+/*
+	top: 0;
+	left: 0;
+*/
+}
+.front {
+	z-index: 2;
+	transform: rotateY(0deg);
+	-webkit-transform: rotateY(0deg);
+}
+.back {
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+/*
+	height: 100%;
+	width: 100%;
+*/
+	max-height: 175px;
+	max-width: 225px;
+	outline: 1px solid black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column;
+	position: relative;
+	background: rgba(0, 0, 0, 0.5);
+	outline: 1px solid #FFF;
+	padding: 5%;
+}
+.back h2 {
+	font-family: "starWars";
+	font-size: 1.5em;
+/*
+	height: 100%;
+	width: 100%;
+*/
+/* 	padding: 15% 10% 0 10%; */
+	position: absolute;
+	top: 0;
+}
+.stats-container {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+	align-content: center;
+	justify-content: center;
+	text-align: center;
+	margin: 5%;
+	position: relative;
+/* 	font-family: "starWars"; */
+/* 	font-family: 'Poiret One', cursive; */
+	font-family: 'Jaldi', sans-serif;
+}
+.back div {
+	padding-top: 5%;
+/* 	margin-top: 2.5%; */
+}
+.hidden {
+	display: none !important;
+}
+footer {
+	grid-area: footer;
+	border-bottom: none;
+	border-top: 1px double #FFF;
+}
+.defeated-container {
+	grid-area: sidebar;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.5);
+/* 	background: yellow; */
+	border-left: 1px double #FFF;
+	display: flex;
+	flex-flow: column-reverse;
+	position: relative;
+}
+.defeated {
+	width: 100%;
+	height: 10%;
+	font-family: 'starWars', sans-serif;
+	color: #FFF;
+	background: rgba(105, 105, 105, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	outline: 1px double #FFF;
+}
+#defeatedEnemies {
+	position: absolute;
+	top: 0;
+	font-size: 0.85em;
+	background: rgba(25, 25, 112, 0.5);
+	display: flex;
+	align-items: flex-end;
+	padding-bottom: 7.5%;
+	
+}
+.margin {
+	grid-area: margin;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	border-right: 1px double #FFF;
+}
+.button {
+	background: rgba(25, 25, 112, 0.65);
+	border: 1px double #FFF;
+	border-radius: 5px;
+	height: 25%;
+	width: 50%;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	font-family: "starWars", sans-serif;
+	color: #FFF;
+}
+.button:hover {
+	background: rgba(25, 25, 112, 0.75);
+	transform: scale(1.05);
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="assets/css/resset.css">
+<!-- 	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet"> -->
+	<link href="https://fonts.googleapis.com/css?family=Jaldi" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<script src="assets/javascript/game.js" defer></script>
+</head>
+
+<body>
+	<header>
+		<h1>Star Wars RPG</h1>
+	</header>
+	
+<div class="game-container">
+	
+	<div class="margin"></div>
+	
+	<div class="top-container">
+		
+		<div class="top-1 flip-container">
+<!-- 			<div class="flip-container"> -->
+				<div class="flipper">
+					<div class="character front quiGon" data-id="quiGon">
+						<div class="character-hp hidden" id="quiGonHP"><span id="quiGonCurrHP"></span></div>
+						<img src="assets/images/qui-gon.jpg" alt="Qui-Gon Jinn">
+						<div class="character-name">qui-Gon Jinn</div>
+					</div>
+					<div class="back" id="quiGon">
+						
+						<div class="stats-container">
+							<h2>qui-Gon</h2>
+							<div>HP: 132</div>
+							<div>Attack: 8</div>
+							<div>Defense: 6</div>
+						</div>
+					</div>
+<!-- 				</div> -->
+			</div>
+		</div>
+		
+		<div class="top-2 flip-container">
+			<div class="flipper" id="enemy0">
+				<div class="character front obiWan" data-id="obiWan">
+					<div class="character-hp hidden" id="obiWanHP"><span id="obiWanCurrHP"></span></div>
+					<img src="assets/images/obi-wan.jpg" alt="Obi Wan Kenobi">
+					<div class="character-name">obi Wan Kenobi</div>
+				</div>
+				<div class="back" id="obiWan">
+					<div class="stats-container">
+						<h2>obi Wan</h2>
+						<div>HP: 94</div>
+						<div>Attack: 8</div>
+						<div>Defense: 7</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="top-3 flip-container">
+			<div class="flipper" id="enemy1">
+
+				<div class="character front luke" data-id="luke">
+					<div class="character-hp hidden" id="lukeHP"><span id="lukeCurrHP"></span></div>
+					<img src="assets/images/luke-skywalker.jpg" alt="Luke Skywalker">
+					<div class="character-name">Luke Skywalker</div>
+				</div>
+				<div class="back" id="luke">
+					<div class="stats-container">
+						<h2>Luke</h2>
+						<div>HP: 75</div>
+						<div>Attack: 12</div>
+						<div>Defense: 4</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		
+		<div class="top-4 flip-container">
+			<div class="flipper" id="enemy2">
+				<div class="character front yoda" data-id="yoda">
+					<div class="character-hp hidden" id="yodaHP"><span id="yodaCurrHP"></span></div>
+					<img src="assets/images/yoda.jpg" alt="Yoda">
+					<div class="character-name">Yoda</div>
+				</div>
+				<div class="back" id="yoda">
+					<div class="stats-container">
+						<h2>Yoda</h2>
+						<div>HP: 120</div>
+						<div>Attack: 8</div>
+						<div>Defense: 5</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="top-5 flip-container">
+			<div class="flipper">
+				<div class="character front rey" data-id="rey">
+					<div class="character-hp hidden" id="reyHP"><span id="reyCurrHP"></span></div>
+					<img src="assets/images/rey.jpg" alt="Rey">
+					<div class="character-name">Rey</div>
+				</div>
+				<div class="back" id="rey">
+					<div class="stats-container">
+						<h2>Rey</h2>
+						<div>HP: 88</div>
+						<div>Attack: 9</div>
+						<div>Defense: 4</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="mid-container">
+		
+		<div class="mid-1 flip-container">
+			<div class="flipper">
+				<div class="character front darthMaul" data-id="darthMaul">
+					<div class="character-hp hidden" id="darthMaulHP"><span id="darthMaulCurrHP"></span></div>
+					<img src="assets/images/darth-maul.jpg" alt="Darth Maul">
+					<div class="character-name">Darth Maul</div>
+				</div>
+				<div class="back" id="darthMaul">
+					<div class="stats-container">
+						<h2>Darth Maul</h2>
+						<div>HP: 75</div>
+						<div>Attack: 9</div>
+						<div>Defense: 6</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="mid-2 flip-container">
+			<div class="flipper">
+				<div class="character front countDooku" data-id="countDooku">
+					<div class="character-hp hidden" id="countDookuHP"><span id="countDookuCurrHP"></span></div>
+					<img src="assets/images/count-dooku.jpg" alt="Count Dooku">
+					<div class="character-name">Count Dooku</div>
+				</div>
+				<div class="back" id="countDooku">
+					<div class="stats-container">
+						<h2>Count Dooku</h2>
+						<div>HP: 153</div>
+						<div>Attack: 7</div>
+						<div>Defense: 6</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="mid-3 flip-container">
+			<div class="flipper" id="currentEnemy">
+<!--
+				<div class="character front" id="luke-skywalker">
+					<img src="assets/images/luke-skywalker.jpg" alt="Luke Skywalker">
+					<div class="character-name">Luke Skywalker</div>
+				</div>
+				<div class="back">
+					Back-Side
+				</div>
+-->
+				<div class="character front darthVader" data-id="darthVader">
+					<div class="character-hp hidden" id="darthVaderHP"><span id="darthVaderCurrHP"></span></div>
+					<img src="assets/images/vader.jpg" alt="Darth Vader">
+					<div class="character-name">Darth vader</div>
+				</div>
+				<div class="back" id="darthVader">
+					<div class="stats-container">
+						<h2>Darth vader</h2>
+						<div>HP: 85</div>
+						<div>Attack: 9</div>
+						<div>Defense: 6</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="mid-4 flip-container">
+			<div class="flipper">
+				<div class="character front darthSidious" data-id="darthSidious">
+					<div class="character-hp hidden" id="darthSidiousHP"><span id="darthSidiousCurrHP"></span></div>
+					<img src="assets/images/darth-sidious.jpg" alt="Darth Sidious">
+					<div class="character-name">Darth Sidious</div>
+				</div>
+				<div class="back" id="darthSidious">
+					<div class="stats-container">
+						<h2>Darth Sidious</h2>
+						<div>HP: 96</div>
+						<div>Attack: 10</div>
+						<div>Defense: 5</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="mid-5 flip-container">
+			<div class="flipper">
+				<div class="character front kyloRen" data-id="kyloRen">
+					<div class="character-hp hidden" id="kyloRenHP"><span id="kyloRenCurrHP"></span></div>
+					<img src="assets/images/kylo-ren.jpg" alt="Kylo Ren">
+					<div class="character-name">Kylo Ren</div>
+				</div>
+				<div class="back" id="kyloRen">
+					<div class="stats-container">
+						<h2>Kylo Ren</h2>
+						<div>HP: 80</div>
+						<div>Attack: 9</div>
+						<div>Defense: 5</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="bottom-container" id="charDisplay">
+		
+		<div class="left-button">
+			<div class="button-container">
+				<div class="button hidden" id="attackButton">
+					Attack!
+				</div>
+			</div>
+		</div>
+			
+		<div class="selected-char">
+			
+<!--
+			<div class="character">
+				<img src="assets/images/vader.jpg" alt="Darth Vader">
+				<div class="character-name">Darth Vader</div>
+			</div>
+-->
+			
+		</div>
+		
+		<div class="right-button">
+			
+		</div>
+		
+	</div>
+	
+	<div class="defeated-container">
+		<div class="defeated" id="defeatedEnemies">
+			Defeated Enemies
+		</div>
+	</div>
+	
+	<footer id="message">
+		Choose your character!
+	</footer>
+	
+</div>	
+</body>
+</html>

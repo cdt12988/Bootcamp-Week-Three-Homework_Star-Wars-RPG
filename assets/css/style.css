@@ -22,6 +22,7 @@ footer {
 	border-bottom: 1px double white;
 	background: black;
 	text-align: center;
+	position: relative;
 }
 .game-container {
 	display: grid;
@@ -176,6 +177,15 @@ footer {
 	align-items: center;
 	position: relative;
 }
+.right-button {
+	grid-area: rightButton;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
 .button-container {
 	height: 100%;
 	width: 100%;
@@ -294,7 +304,7 @@ footer {
 }
 .back h2 {
 	font-family: "starWars";
-	font-size: 1.5em;
+	font-size: 1.4em;
 /*
 	height: 100%;
 	width: 100%;
@@ -302,6 +312,7 @@ footer {
 /* 	padding: 15% 10% 0 10%; */
 	position: absolute;
 	top: 0;
+	color: #FFF;
 }
 .stats-container {
 	height: 100%;
@@ -316,9 +327,10 @@ footer {
 /* 	font-family: "starWars"; */
 /* 	font-family: 'Poiret One', cursive; */
 	font-family: 'Jaldi', sans-serif;
+	color: #F8D549;
 }
 .back div {
-	padding-top: 5%;
+	padding-top: 10%;
 /* 	margin-top: 2.5%; */
 }
 .hidden {
@@ -367,6 +379,9 @@ footer {
 	width: 100%;
 	background: rgba(0, 0, 0, 0.5);
 	border-right: 1px double #FFF;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
 }
 .button {
 	background: rgba(25, 25, 112, 0.65);
@@ -375,8 +390,10 @@ footer {
 	height: 25%;
 	width: 50%;
 	position: absolute;
+/*
 	right: 0;
 	bottom: 0;
+*/
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -387,4 +404,92 @@ footer {
 .button:hover {
 	background: rgba(25, 25, 112, 0.75);
 	transform: scale(1.05);
+}
+#attackButton {
+	right: 0;
+	bottom: 0;
+}
+#newGameButton {
+	left: 0;
+	bottom: 0;
+}
+.helpButton {
+	font-family: "starWars", sans-serif;
+	color: #FFF;
+	font-size: 3em;
+/*
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+*/
+	cursor: pointer;
+	width: 5vw;
+	height: 5vw;
+	z-index: 10;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	
+	padding-bottom: 5%;
+	
+/* 	padding-left: 2.5%; */
+}
+/*
+.shrink {
+	font-size: 1.5em;
+}
+*/
+.helpButton:hover {
+	transform: scale(1.25);
+}
+.instructions {
+	grid-column: 2 / 3;
+	grid-row: 1 / 4;
+	height: 100%;
+	width: 100%;
+/* 	background: yellow; */
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	line-height: 1.6;
+	overflow: auto;
+	position: relative;
+}
+.instructions h2 {
+	border-bottom: 1px solid #FFF;
+}
+.instructions h2,
+.instructions h3 {
+	font-family: 'starWars', sans-serif;
+	color: #FFF;
+	font-size: 3em;
+}
+.instructions h3 {
+	font-size: 2em;
+	margin-top: 1em;
+}
+.instructions p {
+	margin-top: 1em;
+	font-family: 'Jaldi', sans-serif;
+	color: #F8D549;
+	font-size: 1.25em;
+}
+.backButton {
+	font-family: 'Jaldi', sans-serif;
+	color: #FFF;
+	font-size: 2em;
+	position: fixed;
+	width: 10%;
+    height: 2em;
+    margin-top: 0.25%;
+    margin-left: 0.5%;
+}
+.backButton span {
+	font-size: 2.25em;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+#gameTips {
+	margin-top: 1em;
 }

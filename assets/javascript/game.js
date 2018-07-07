@@ -1,3 +1,4 @@
+/*
 var quiGon = {
 	name: 'qui-Gon Jinn',
 	hp: 132,
@@ -79,6 +80,89 @@ var kyloRen = {
 	currentHP: 80,
 	currentAP: 9
 }
+*/
+
+var quiGon = {
+	name: 'qui-Gon Jinn',
+	hp: 1188,
+	ap: 51,
+	def: 108,
+	currentHP: 1188,
+	currentAP: 51,
+}
+var obiWan = {
+	name: 'obi Wan Kenobi',
+	hp: 984,
+	ap: 72,
+	def: 72,
+	currentHP: 984,
+	currentAP: 72
+}
+var luke = {
+	name: 'Luke Skywalker',
+	hp: 754,
+	ap: 123,
+	def: 41,
+	currentHP: 754,
+	currentAP: 123
+}
+var yoda = {
+	name: 'Yoda',
+	hp: 1234,
+	ap: 82,
+	def: 51,
+	currentHP: 1234,
+	currentAP: 82
+}
+var rey = {
+	name: 'Rey',
+	hp: 932,
+	ap: 92,
+	def: 53,
+	currentHP: 932,
+	currentAP: 92
+}
+var darthMaul = {
+	name: 'Darth Maul',
+	hp: 761,
+	ap: 100,
+	def: 67,
+	currentHP: 761,
+	currentAP: 100
+}
+var countDooku = {
+	name: 'Count Dooku',
+	hp: 1530,
+	ap: 57,
+	def: 76,
+	currentHP: 1530,
+	currentAP: 51
+}
+var darthVader = {
+	name: 'Darth vader',
+	hp: 855,
+	ap: 108,
+	def: 61,
+	currentHP: 855,
+	currentAP: 108
+}
+var darthSidious = {
+	name: 'Darth Sidious',
+	hp: 961,
+	ap: 100,
+	def: 55,
+	currentHP: 961,
+	currentAP: 100
+}
+var kyloRen = {
+	name: 'Kylo Ren',
+	hp: 808,
+	ap: 94,
+	def: 69,
+	currentHP: 808,
+	currentAP: 94
+}
+
 
 var selectedChar = '';
 var allChars = ['quiGon', 'obiWan', 'luke', 'yoda', 'rey', 'darthMaul', 'countDooku', 'darthVader', 'darthSidious', 'kyloRen'];
@@ -89,6 +173,8 @@ var selectedEnemy = '';
 var message = '';
 var gameState = 'choose-character';
 var round = 1;
+var dmgDealt = 0;
+var dmgReceived = 0;
 
 	// Logs game data
 function logData() {
@@ -132,6 +218,7 @@ function displayHP() {
 	// Game loss functions
 function lose() {
 	$('#attackButton').addClass('hidden');
+	$('#newGameButton').removeClass('hidden');
 	$('*[data-id="' + selectedChar + '"]').addClass('charDefeated');
 }
 
@@ -149,7 +236,7 @@ function winRound() {
 	
 	if(enemiesDefeated.length == 3 || enemiesDefeated.length == 6) {
 		winLevel();
-		message = 'You have defeated ' + eval(selectedEnemy).name + ' and advanced to the next level! Choose your next enemy!';
+		message = 'You dealt ' + dmgDealt + ' damage and have defeated ' + eval(selectedEnemy).name + '! You have advanced to the next level! Now, choose your next enemy!';
 	} else if(enemiesDefeated.length == 9) {
 		winGame();
 	} else {
@@ -189,6 +276,7 @@ function winLevel() {
 	// Game win functions
 function winGame() {
 	message = 'You have defeated all enemies! You win!';
+	$('#newGameButton').removeClass('hidden');
 }
 
 	// Sets the character select event listener and stores the selected character
@@ -237,11 +325,14 @@ $('.back').on('click', function() {
 		$('.' + currentEnemies[i]).detach().appendTo('#enemy' + i);
 	}
 	
+	// Shrinks the help icon
+// 	$('.helpButton').addClass('shrink');
+	
 	// Change the game state
 	gameState = 'choose-enemy';
 	
 	// Change message and log game data
-	message = 'You chose ' + eval(selectedChar).name + '! Now choose your first enemy!';
+	message = 'You have chosen ' + eval(selectedChar).name + '! Now choose your first enemy!';
 	logData();
 });
 
@@ -288,21 +379,40 @@ $('.character').on('click', function() {
 
 	// Sets the attack button event listener
 $('#attackButton').on('click', function() {
-	eval(selectedEnemy).currentHP -= eval(selectedChar).currentAP;
+	
+// 	var randomAtkMod = 0.5 + Math.random() * 3;
+
+	var randomMod = 1.25 + Math.random() * 2.75;
+	var counterAttack = Math.floor((eval(selectedEnemy).ap * randomMod));
+	dmgDealt = (eval(selectedChar).currentAP - eval(selectedEnemy).def);
+	dmgReceived = counterAttack - eval(selectedChar).def;
+	
+	if(dmgDealt < 0) {
+		dmgDealt = 0;
+	}
+	if(dmgReceived < 0) {
+		dmgReceived = 0;
+	}
+	
+//	eval(selectedEnemy).currentHP -= (eval(selectedChar).currentAP - eval(selectedEnemy).def);
+	eval(selectedEnemy).currentHP -= dmgDealt;
+	
 	
 	if(eval(selectedEnemy).currentHP > 0) {
-		eval(selectedChar).currentHP -= (eval(selectedEnemy).ap * 2);
-		message = 'You attack ' + eval(selectedEnemy).name + ' for ' + eval(selectedChar).currentAP + ' damage and take ' + (eval(selectedEnemy).ap * 2) + ' damage in return!';
+//		eval(selectedChar).currentHP -= Math.floor(((eval(selectedEnemy).ap * 2.5) - eval(selectedChar).def));
+		eval(selectedChar).currentHP -= dmgReceived;
+//		message = 'You attack ' + eval(selectedEnemy).name + ' for ' + (eval(selectedChar).currentAP - eval(selectedEnemy).def) + ' damage and take ' + Math.floor(((eval(selectedEnemy).ap * 2.5) - eval(selectedChar).def)) + ' damage in return!';
+		message = 'You attack ' + eval(selectedEnemy).name + ' for ' + dmgDealt + ' damage and take ' + dmgReceived + ' damage in return!';
 	} else {
 		eval(selectedEnemy).currentHP = 0;
-		message = 'You have defeated ' + eval(selectedEnemy).name + '!';
+		message = 'You dealt ' + dmgDealt + ' damage and have defeated ' + eval(selectedEnemy).name + '!';
 		round++;
 		winRound();
 	}
 	
 	if(eval(selectedChar).currentHP < 1) {
 		eval(selectedChar).currentHP = 0;
-		message = 'You have been defeated by ' + eval(selectedEnemy).name + '! Game over!';
+		message = 'You suffered ' + dmgReceived + ' damage and have been defeated by ' + eval(selectedEnemy).name + '! Game over!';
 		gameState = 'lose';
 		lose();
 	}
@@ -311,5 +421,30 @@ $('#attackButton').on('click', function() {
 	
 	eval(selectedChar).currentAP += eval(selectedChar).ap;
 	
+	console.log('~~~~~~ Random Modifier: ' + randomMod + '~~~~~~');
 	logData();
+});
+
+
+
+
+	// Sets the new game reset button event listener
+$('#newGameButton').on('click', function() {
+	location.reload();
+});
+
+	// Sets instructions event listener
+$('.helpButton').on('click', function() {
+	$('.instructions').toggleClass('hidden');
+	$('.top-container').toggleClass('hidden');
+	$('.mid-container').toggleClass('hidden');
+	$('.bottom-container').toggleClass('hidden');
+});
+
+	// Sets back button event listener
+$('.backButton').on('click', function() {
+	$('.instructions').toggleClass('hidden');
+	$('.top-container').toggleClass('hidden');
+	$('.mid-container').toggleClass('hidden');
+	$('.bottom-container').toggleClass('hidden');
 });

@@ -41,3 +41,7 @@ If you manage to defeat these 3 enemies as well, you will advance to the last st
 * Since your attacks grow in strength the longer the game lasts and your enemies' do not, it is best to focus on characters with lower Attack Power early in the game.  That way you build up your Attack Power to make quick work of enemies with stronger attacks later in the game.
 
 * Different strategies may work for different characters.  For instance, a character with high HP and Defense, but low Attack Power will do better at absorbing the attacks of their enemies while building their own Attack Power than a character with low HP/Defense and high Attack Power who will need to focus on building their Attack Power more rapidly to defeat their enemies.
+
+## Additional Comments
+
+This game is designed for full screen laptops or desktops and may have display issues on smaller screens.

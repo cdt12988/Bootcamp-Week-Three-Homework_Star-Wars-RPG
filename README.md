@@ -4,6 +4,8 @@ Link to Game: [https://cdt12988.github.io/unit-4-game](https://cdt12988.github.i
 
 This simple RPG allows you to select a Star Wars character to battle against all other characters in an attempt to be the last one standing.
 
+![Screenshot](https://cdt12988.github.io/images/portfolio/starwars.jpg "Star Wars RPG Screenshot")
+
 ## Languages Used
 
 This game uses HTML5, CSS3, and JavaScript with an emphasis on the jQuery framework.
